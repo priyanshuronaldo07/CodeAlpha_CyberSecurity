@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .profile { border: 1px solid #ccc; padding: 20px; max-width: 400px; }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <h1>{{ user.name }}</h1>
+        <p><strong>ID:</strong> {{ user.id }}</p>
+        <p><strong>Bio:</strong> {{ user.bio }}</p>
+        <p style="color: green; font-size: 12px;">
+            ✅ This page is protected from XSS - content is automatically escaped by Jinja2
+        </p>
+    </div>
+</body>
+</html>

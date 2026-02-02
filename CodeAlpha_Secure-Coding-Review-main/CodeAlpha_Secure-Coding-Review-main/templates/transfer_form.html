@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Transfer Form</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        form { max-width: 400px; }
+        input, button { display: block; margin: 10px 0; padding: 10px; width: 100%; }
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .result { margin-top: 20px; padding: 10px; background-color: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>Secure Money Transfer</h1>
+    <p>This form is protected by CSRF token</p>
+    
+    <form method="POST" action="/secure/transfer">
+        {{ csrf_token() }}
+        
+        <label>Amount ($):</label>
+        <input type="number" name="amount" min="1" required>
+        
+        <label>Recipient ID:</label>
+        <input type="text" name="recipient" placeholder="e.g., user123" required>
+        
+        <button type="submit">Transfer Money</button>
+    </form>
+    
+    <div class="result">
+        <h3>Security Note:</h3>
+        <p>✅ This form includes a CSRF token that prevents unauthorized transfers</p>
+        <p>❌ Without this token, external websites could force transfers on your behalf</p>
+    </div>
+</body>
+</html>
